@@ -2,6 +2,7 @@
 
 use App\Events\hello;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientResponseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,7 @@ Route::get('/', function () {
 
 Route::get('/broadcast', function () {
     broadcast(new hello());
-})-> middleware('cors'); 
+});
+
+Route::get('/clientmessage', [ClientResponseController::class, 'index'])-> middleware('cors'); 
 
