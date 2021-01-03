@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class hello implements ShouldBroadcastNow
+class response implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -28,7 +28,7 @@ class hello implements ShouldBroadcastNow
     public function broadcastWith()
     {
         return[
-            'Hello Client!'
+            'Response recieved'
         ];
     }
 
