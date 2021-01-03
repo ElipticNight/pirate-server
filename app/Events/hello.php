@@ -28,7 +28,7 @@ class hello implements ShouldBroadcastNow
     public function broadcastWith()
     {
         return[
-            'Hello World!'
+            'Hello Client!'
         ];
     }
 

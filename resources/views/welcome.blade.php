@@ -7,12 +7,12 @@
         <title>Laravel</title>
     </head>
     <body>
-        <button class="button-one" onclick="helloworld()">hello world</button>
+        <button class="button-one" onclick="helloclient()">hello client</button>
     </body>
 </html>
 
 <script>
-    function helloworld() {
+    function helloclient() {
         $.ajax({
             url:"/broadcast",
         });

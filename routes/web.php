@@ -20,5 +20,5 @@ Route::get('/', function () {
 
 Route::get('/broadcast', function () {
     broadcast(new hello());
-});
+})-> middleware('cors'); 
 
