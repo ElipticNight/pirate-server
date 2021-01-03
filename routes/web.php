@@ -2,7 +2,7 @@
 
 use App\Events\hello;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClientResponseController;
+use App\Http\Controllers\RoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +23,4 @@ Route::get('/broadcast', function () {
     broadcast(new hello());
 });
 
-Route::get('/clientmessage', [ClientResponseController::class, 'index'])-> middleware('cors'); 
-
+Route::get('/createroom', [RoomController::class, 'createRoom'])->middleware('cors');
