@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
+use App\Http\Objects\Room as RoomInstance;
 
 class RoomController extends Controller
 {
@@ -10,8 +12,12 @@ class RoomController extends Controller
 
     public static function createRoom()
     {
-        //create room id and store in database
-        return 'herliragnoae';
+        $room = new Room();
+        $channel = strtoupper(dechex(rand(1048576, 16777215)));
+        $room->channel = $channel;
+
+        $room->save();
+        return $channel;
     }
 
     public static function addUserToRoom()
