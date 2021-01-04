@@ -6,11 +6,21 @@ use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
-    private static $counter = 0;
+    public static $roomID;
 
-    public function createRoom()
+    public static function createRoom()
     {
-        self::$counter++;
-        return self::$counter;
+        //create room id and store in database
+        return 'herliragnoae';
+    }
+
+    public static function addUserToRoom()
+    {
+        //
+    }
+
+    public function __construct()
+    {
+        //fetch room info from database
     }
 }
