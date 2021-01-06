@@ -16,6 +16,7 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('channel');
+            $table->unique('channel');
             $table->unsignedBigInteger('client_no')->default(0);
             $table->timestamps();
         });

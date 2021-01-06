@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Http\Objects\Room as RoomInstance;
 
@@ -20,9 +21,17 @@ class RoomController extends Controller
         return $channel;
     }
 
-    public static function addUserToRoom()
+    public static function addClientToRoom($channel)
     {
-        //
+        $client = new Client();
+        $client->channel_id = $channel;
+        $client->save();
+
+        $room = Room::firstWhere('channel', $channel);
+        $room->client_no++;
+        $room->save();
+        broadcast('response');
+        return "success";
     }
 
     public function __construct()
