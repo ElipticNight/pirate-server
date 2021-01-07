@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get('/createroom', [RequestController::class, 'createRoom'])->middleware('cors');
 Route::get('/joinroom/{channel}', [RequestController::class, 'joinRoom'])->middleware('cors');
+Route::get('/message/{channel}', [RequestController::class, 'message'])->middleware('cors');

@@ -16,4 +16,9 @@ class RequestController extends Controller
     {
         return RoomController::addClientToRoom($request->channel);
     }
+
+    public function message(request $request)
+    {
+        return RoomController::message($request->channel);
+    }
 }

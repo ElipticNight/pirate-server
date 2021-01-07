@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\RoomJoined;
 use App\Models\Room;
 use App\Models\Client;
+use App\Events\Message;
+use App\Events\RoomJoined;
 use Illuminate\Http\Request;
 use App\Http\Objects\Room as RoomInstance;
 
@@ -35,6 +36,11 @@ class RoomController extends Controller
         event(new RoomJoined($channel));
 
         return "success";
+    }
+
+    public static function message($channel)
+    {
+        event(new Message($channel));
     }
 
     public function __construct()
