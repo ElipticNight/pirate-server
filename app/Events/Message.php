@@ -43,4 +43,9 @@ class Message implements ShouldBroadcastNow
     {
         return new Channel($this->channel);
     }
+
+    public function broadcastAs()
+    {
+        return 'event';
+    }
 }
