@@ -1,6 +1,5 @@
 <?php
 
-use App\Events\hello;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RequestController;
 

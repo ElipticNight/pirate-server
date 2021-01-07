@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\RoomJoined;
 use App\Models\Room;
 use App\Models\Client;
 use Illuminate\Http\Request;
@@ -30,7 +31,9 @@ class RoomController extends Controller
         $room = Room::firstWhere('channel', $channel);
         $room->client_no++;
         $room->save();
-        broadcast('response');
+
+        event(new RoomJoined($channel));
+
         return "success";
     }
 
