@@ -7,8 +7,18 @@ use Illuminate\Http\Request;
 
 class RequestController extends Controller
 {
-    public function test()
+    public function createRoom()
     {
         return RoomController::createRoom();
+    }
+
+    public function joinRoom(request $request)
+    {
+        return RoomController::addClientToRoom($request->channel);
+    }
+
+    public function message(request $request)
+    {
+        return RoomController::message($request->channel);
     }
 }

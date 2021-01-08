@@ -11,24 +11,26 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class hello implements ShouldBroadcastNow
+class RoomJoined implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    protected $channel;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(string $channel)
     {
-        //
+        $this->channel = $channel;
     }
 
     public function broadcastWith()
     {
         return[
-            'Hello Client!'
+            'new user joined the room!'
         ];
     }
 
@@ -39,6 +41,11 @@ class hello implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new Channel('channel');
+        return new Channel($this->channel);
+    }
+
+    public function broadcastAs()
+    {
+        return 'event';
     }
 }

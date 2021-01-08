@@ -15,8 +15,8 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('room_id');
-            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->string('channel_id');
+            $table->foreign('channel_id')->references('channel')->on('rooms');
             $table->timestamps();
         });
     }

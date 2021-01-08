@@ -1,6 +1,5 @@
 <?php
 
-use App\Events\hello;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RequestController;
 
@@ -19,8 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/broadcast', function () {
-    broadcast(new hello());
-});
-
-Route::get('/createroom', [RequestController::class, 'test'])->middleware('cors');
+Route::get('/createroom', [RequestController::class, 'createRoom'])->middleware('cors');
+Route::get('/joinroom/{channel}', [RequestController::class, 'joinRoom'])->middleware('cors');
+Route::get('/message/{channel}', [RequestController::class, 'message'])->middleware('cors');
