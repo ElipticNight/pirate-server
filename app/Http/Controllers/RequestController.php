@@ -21,4 +21,16 @@ class RequestController extends Controller
     {
         return RoomController::message($request->channel);
     }
+
+    public function ready(request $request)
+    {
+        $room = new RoomController();
+        return $room->clientReady();
+    }
+
+    public function unready(request $request)
+    {
+        $room = new RoomController();
+        return $room->clientUnReady();
+    }
 }

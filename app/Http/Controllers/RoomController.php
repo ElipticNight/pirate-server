@@ -47,4 +47,14 @@ class RoomController extends Controller
     {
         //fetch room info from database
     }
+
+    public function clientReady()
+    {
+        return "ready";
+    }
+
+    public function clientUnReady()
+    {
+        return "unready";
+    }
 }
